@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, StatusBar } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, StatusBar } from 'react-native';
+import React from 'react';
 import { PaperProvider } from 'react-native-paper';
 import Registration from './src/screens/Registration';
 import { Provider } from 'react-redux'
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 
 const App: React.FC = () => {
   useEffect(() => {
-    console.log(store.getState())
+    console.log(store)
   }, []);
   
   return (
