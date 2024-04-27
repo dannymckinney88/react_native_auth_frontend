@@ -3,7 +3,8 @@ import React from 'react'
 import { PaperProvider } from 'react-native-paper';
 import Registration from './src/screens/Registration';
 import { Provider } from 'react-redux'
-import Store from './src/context/store';
+import store from './src/context/store';
+import { useEffect } from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,14 +15,19 @@ const styles = StyleSheet.create({
   },
 });
 
+
 const App: React.FC = () => {
+  useEffect(() => {
+    console.log(store.getState())
+  }, []);
+  
   return (
-    <Provider store={Store}  >   
+    <Provider store={store}>
       <PaperProvider>
         <Registration />
       </PaperProvider>
     </Provider>
-  )
+  );
 }
 
 export default App
