@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import { PaperProvider } from 'react-native-paper';
-import Registration from './src/screens/Registration';
+import Registration from './screens/Registration';
 import { Provider } from 'react-redux'
-import store from './src/context/store';
+import store from './context/store';
 import { useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import Navigation from './navigation/Navigation';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,14 +19,12 @@ const styles = StyleSheet.create({
 
 
 const App: React.FC = () => {
-  useEffect(() => {
-    console.log(store)
-  }, []);
-  
+
+ 
   return (
     <Provider store={store}>
       <PaperProvider>
-        <Registration />
+        <Navigation />
       </PaperProvider>
     </Provider>
   );
