@@ -3,7 +3,7 @@ import React from 'react'
 import { Appbar, Card, TextInput, Button  } from 'react-native-paper'
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation/Navigation';
+// import { RootStackParamList } from '../navigation/Navigation';
 
 
 // interface RegistrationProps {
