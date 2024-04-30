@@ -5,18 +5,21 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import Registration from '../screens/Registration';
 import Home from '../screens/Home';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useAppDispatch, useAppSelector } from '../app/hooks'
+import {  RootState } from '../app/store'
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
+
 const Navigation: React.FC = () => {
   // This should be dynamic based on your auth state
-  const isAuthenticated = false;
+  const isAuthenticated = useAppSelector((state: RootState) => state.user.isAuthenticated);
+  console.log('isAuthenticated', isAuthenticated);
 
   const AuthStack = () => (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Registration" component={Registration} />
-   
     </Stack.Navigator>
   );
 
@@ -36,7 +39,7 @@ const Navigation: React.FC = () => {
         name="Home"
         component={Home}
       />
-      // Add more tabs for authenticated parts of the app if necessary
+ 
     </Tab.Navigator>
   );
 
@@ -46,5 +49,6 @@ const Navigation: React.FC = () => {
     </NavigationContainer>
   );
 };
+
 
 export default Navigation;
